@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FormField from './form-field';
 
 class App extends Component {
   state = {
@@ -15,29 +16,37 @@ class App extends Component {
   }
 
   render() {
-    const { fullName, email } = this.state;
+    const { fullName, email, password } = this.state;
 
     return <form>
-      <h1>Sign in form</h1>
-      <div>
-        <label htmlFor="user[full_name]">Full Name</label>
-        <input
-          type="text"
-          name="user[full_name]"
-          value={fullName}
-          // arrow function ansures it only fires when the field is updated
-          onChange={(e) => this.handleChange(e, 'fullName')}
-        />
-      </div>
+      <h1>Registration form</h1>
+
+      <FormField
+        attr='fullName'
+        type='text'
+        label='Full name'
+        value={fullName}
+        handleChange={this.handleChange}
+      />
+
+      <FormField
+        attr='email'
+        type='text'
+        label='Email'
+        value={email}
+        handleChange={this.handleChange}
+      />
+
+      <FormField
+        attr='password'
+        type='password'
+        label='Password'
+        value={password}
+        handleChange={this.handleChange}
+      />
 
       <div>
-        <label htmlFor="user[email]">Email</label>
-        <input
-          type="text"
-          name="user[email]"
-          value={email}
-          onChange={(e) => this.handleChange(e, 'email')}
-        />
+        <button>Sign Up</button>
       </div>
     </form>
   }
