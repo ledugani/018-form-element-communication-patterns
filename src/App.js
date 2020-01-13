@@ -20,36 +20,30 @@ class App extends Component {
 
     return <form>
       <h1>Registration form</h1>
-      <div>
-        <label htmlFor="user[full_name]">Full Name</label>
-        <input
-          type="text"
-          name="user[full_name]"
-          value={fullName}
-          // arrow function ansures it only fires when the field is updated
-          onChange={(e) => this.handleChange(e, 'fullName')}
-        />
-      </div>
 
-      <div>
-        <label htmlFor="user[email]">Email</label>
-        <input
-          type="text"
-          name="user[email]"
-          value={email}
-          onChange={(e) => this.handleChange(e, 'email')}
-        />
-      </div>
+      <FormField
+        attr='fullName'
+        type='text'
+        label='Full name'
+        value={fullName}
+        handleChange={this.handleChange}
+      />
 
-      <div>
-        <label htmlFor="user[password]">Password</label>
-        <input
-          type="password"
-          name="user[password]"
-          value={password}
-          onChange={(e) => this.handleChange(e, 'password')}
-        />
-      </div>
+      <FormField
+        attr='email'
+        type='text'
+        label='Email'
+        value={email}
+        handleChange={this.handleChange}
+      />
+
+      <FormField
+        attr='password'
+        type='password'
+        label='Password'
+        value={password}
+        handleChange={this.handleChange}
+      />
 
       <div>
         <button>Sign Up</button>
