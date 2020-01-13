@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FormField from './form-field';
 
 class App extends Component {
   state = {
@@ -15,10 +16,10 @@ class App extends Component {
   }
 
   render() {
-    const { fullName, email } = this.state;
+    const { fullName, email, password } = this.state;
 
     return <form>
-      <h1>Sign in form</h1>
+      <h1>Registration form</h1>
       <div>
         <label htmlFor="user[full_name]">Full Name</label>
         <input
@@ -38,6 +39,20 @@ class App extends Component {
           value={email}
           onChange={(e) => this.handleChange(e, 'email')}
         />
+      </div>
+
+      <div>
+        <label htmlFor="user[password]">Password</label>
+        <input
+          type="password"
+          name="user[password]"
+          value={password}
+          onChange={(e) => this.handleChange(e, 'password')}
+        />
+      </div>
+
+      <div>
+        <button>Sign Up</button>
       </div>
     </form>
   }
